@@ -1,0 +1,320 @@
+  <!-- Total Page Container Stars here-->
+  <div class="container" ng-controller="subscriberCtrl" ng-cloak>
+    <!-- Section 1 start -->
+    <div ng-repeat="user in userData.users.users" style="background-color:#E8E8E8;text-align: right; ">Welcome to : {{user.user_name}} ({{user.user_Id}}).  </div>
+   <div class="row" style="margin-left:0px;">
+        <div class="col-md-4 recent-complaint"
+            style="background: grey;border-radius: 10px;color: white;font-size: x-large;height: 450px;padding: 15px">
+          <div  ng-show="subscriberData.recent_complaint.length">
+	          Your Latest Complaint
+	          <div style="padding-top:20px" ng-repeat="item1 in subscriberData.recent_complaint">
+	            <div style="font-size: medium;padding-top:10px">Complaint Date : {{item1.delivery_time|date:'dd-MM-yyyy'}}</div>
+	            <div style="font-size: medium;padding-top:10px" title="{{item1.comments}}">
+	            Latest comments : {{item1.comments| limitTo: 100 }}{{item1.comments.length > 100 ? '...' : ''}}
+	            </div>
+	            <div style="font-size: medium;padding-top:10px">Latest Status : {{item1.latest_status}}</div>
+	            <div style="font-size: medium;padding-top:10px">Last Updated on : {{item1.last_updated}}</div>
+	            <div style="font-size: medium;padding-top:20px">
+
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#escalateModal" href="#" ng-click="escalate(item1, 3)" ng-hide="item1.latest_status == 'Closed'">Close</button>
+	              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#escalateModal" href="#" ng-click="escalate(item1, 2)">Escalate</button>
+	              <button type="button" class="btn btn-primary"
+	              	ng-click="getLastestComplaintHistory(item1.comp_id);toggleShowLatestComplaintHistory()">View History</button>
+	            </div>
+	          </div>
+          </div>
+          <div ng-show="subscriberData.today_status && !subscriberData.recent_complaint.length">
+          	Your Contact people
+          	<table class="table table-no-border" style="font-size: small; margin-top:30px;overflow-y:auto; height:350px">
+                 <tbody>
+                  <tr>
+                    <td>Delivery Boy Name</td>
+                    <td>{{subscriberData.today_status.delivery_boy_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Delivery Boy Phone</td>
+                    <td>{{subscriberData.today_status.delivery_boy_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Agent Name</td>
+                    <td>{{subscriberData.today_status.agent_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Agent Phone</td>
+                    <td>{{subscriberData.today_status.agent_no}}</td>
+                  </tr>
+                  <tr>
+                    <td>Publisher Name</td>
+                    <td>{{subscriberData.today_status.publisher_rep_name}}</td>
+                  </tr>
+                  <tr>
+                    <td>Publisher Phone</td>
+                    <td>{{subscriberData.today_status.publisher_rep_no}}</td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-8" style="border: 2px solid ghostwhite;margin-left: -10px;background: white;height: 450px;padding: 5px;padding-top:15px">
+          <div ng-show="showLatestComplaintHistory">
+            <a href="#" class="close" ng-click="toggleShowLatestComplaintHistory()" aria-label="close" title="close">×</a>
+            <div ng-hide="complaintById[topHistoryCompId].length"> NO History..! </div>
+            <div ng-show="complaintById[topHistoryCompId].length"> <h3>Latest Complaint's History</h3>
+              <div style="overflow-y:auto; height:300px">
+              <table class="table table-no-border">
+                <thead>
+                  <tr>
+                  <th>Complaint ID</th>
+                  <th>Updated By</th>
+                  <th>Comments</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat = "complist in complaintById[topHistoryCompId]">
+                  <td>{{complist.comp_Id}}</td>
+                  <td>{{complist.UpdatedPersonName}}</td>
+                  <td title="{{complist.comments}}">{{complist.comments| limitTo: 30 }}{{complist.comments.length > 30 ? '...' : ''}}</td>
+                  <td>{{complist.status}}</td>
+                </tr>
+                </tbody> 
+              </table>
+            </div>
+            </div>
+            </div>
+            <div ng-show="!showLatestComplaintHistory">
+              Today's Paper Delivery Status
+          <div class="panel-body">
+            <div class="alert alert-success" ng-show="actionStatus.success">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+              <strong>Success!</strong> Thanks for your input, your paper will be delivered shortly.
+            </div>
+
+            <div class="alert alert-info" ng-show="actionStatus.info">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+              <strong>Info!</strong> Thanks for confirming that your paper has received.
+            </div>
+
+            <div class="alert alert-danger" ng-show="actionStatus.failure">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+              <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+            </div>
+            
+           <div style="float:right">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-primary" ng-click="abc(0)">YES</button>
+                  <div class="btn-group">
+                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  NO <span class="caret"></span></button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a data-toggle="modal" data-target="#myModal" href="#" ng-click="todayStatusBySubscriber.status=1">Not Delivered</a></li>
+                    <li><a data-toggle="modal" data-target="#myModal" href="#" ng-click="todayStatusBySubscriber.status=2">Late Delivered</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer">
+            <table class="table table-no-border">
+                 <tbody>
+                  <tr ng-show="subscriberData.today_status.delivery_status">
+                    <td class="info">Delivery Status : </td>
+                    <td>{{subscriberData.today_status.delivery_status}} </td>
+                  </tr>
+                  <tr ng-show="subscriberData.today_status.delivery_status_sub">
+                    <td class="info">Delivery Status (You): </td>
+                    <td>{{subscriberData.today_status.delivery_status_sub}} </td>
+                  </tr>
+                  <tr ng-show="subscriberData.today_status.delivery_status_boy">
+                    <td class="info">Delivery Status (Boy): </td>
+                    <td>{{subscriberData.today_status.delivery_status_boy}} </td>
+                  </tr>
+                  <tr>
+                    <td class="info">Dated : </td>
+                    <td>{{subscriberData.today_status.delivery_time|date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                  </tr>
+                  <tr>
+                    <td class="info">Delivery Boy Name : </td>
+                    <td>{{subscriberData.today_status.delivery_boy_name}}</td>
+                  </tr>
+                  <tr>
+                    <td class="info">Agent Name : </td>
+                    <td>{{subscriberData.today_status.agent_name}}</td>
+                  </tr>
+                  <tr>
+                    <td class="info">Comments from you: </td>
+                    <td>{{subscriberData.today_status.comments}}</td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+    </div>
+    <div>
+    <!-- Section 3 Start -->
+    <div class="panel panel-primary" style="margin-top:20px">
+      <div class="panel-body">Last 30 Days Delivery History
+        <div style="float:right">
+          <div class="dropdown" ng-show="subscriberData.history.length">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                Filter Results<span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><a href="#" ng-click="filterHistory='!'">Show All</a></li>
+              <li><a href="#" ng-click="filterHistory='Delivered'">Delivered on Time</a></li>
+              <li><a href="#" ng-click="filterHistory='Not Delivered'">Not Delivered</a></li>
+              <!--
+              <li><a href="#" ng-click="filterHistory='Not Delivered'">Complaint Raised (Not Resolved)</a></li>
+              <li><a href="#" ng-click="filterHistory=''">Complaints Resolved</a></li>
+              -->
+            </ul>
+          </div>
+          <div ng-hide="subscriberData.history.length">...your last 30 days delivery history will be displayed here starting from today!</div>
+        </div>
+      </div>
+
+      
+    </div>
+    <!-- Section 3 End -->
+    </div>
+    <!-- /.container -->
+    
+    <div class="su-accordion ctheme_style" ng-repeat="item in subscriberDataUpdated.history| filter:{'status':filterHistory}:true">
+			<div class="su-spoiler su-spoiler-style-default su-spoiler-icon-plus" ng-class="{'su-spoiler-closed': !complaintByDate[item.date_time].show}">
+				<div class="su-spoiler-title"  ng-click="getComplaintHistory(item.date_time)">
+					<span class="su-spoiler-icon"></span>
+					<div>Date: {{item.date_time|date:'dd-MM-yyyy'}}</div>
+					<div>Boy:{{item.deliveryboy_name}} | {{item.delivery_boy_no}} </div>
+					<div>Your status: {{item.status}}, Boy status: {{item.status}}</div>
+					<div>Your comments: {{item.comments}}</div>
+				</div>
+				<div ng-show="complaintByDate[item.date_time].show && !complaintByDate[item.date_time].length">No History</div>
+				<div id="testContent" ng-repeat-end ng-show="complaintByDate[item.date_time].show && complaintByDate[item.date_time].length">
+					<table class="table table-no-border">
+                <thead>
+                  <tr>
+                    <th> Complaint ID:</th>
+                    <th> Updated By:</th>
+                    <th> Comments:</th>
+                    <th> Status:</th>
+                  </tr>   
+                </thead>
+                <tbody>
+                  <tr ng-repeat = "history in complaintByDate[item.date_time]">
+                    <td>{{history.comp_Id}}</td>
+                    <td>{{history.UpdatedPersonName}}</td>
+                    <td>{{history.comments}}</td>
+                    <td>{{history.status}}</td>
+                  </tr> 
+                </tbody>
+              </table>   
+				</div>
+			</div>
+		</div>
+ <div class="container">   
+    <hr class="featurette-divider"/>
+    <!-- FOOTER -->
+    <footer>
+     <div class="container">
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <!-- <p>&copy; 2016 Suparna Global Technologies. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
+      <div class="col col-lg-10">
+                <img src="<?php echo $URL_PREFIX; ?>/img/newst.png" alt="Inc" width="100px">
+                <a href="<?php echo $URL_PREFIX; ?>/home/about/">About</a>
+                <a href="/apps/">Apps</a>
+                <a href="/help/">Help</a>
+                <a href="/terms/">Terms</a>
+                <a href="<?php echo $URL_PREFIX; ?>/home/privacy/">Privacy</a>
+                <a href="<?php echo $URL_PREFIX; ?>/home/contact/">Contact Us</a>
+            </div>
+           
+            <div class="col col-lg-2">
+                <span style="white-space: nowrap">&copy; 2016 Suparna Global Technologies. &middot;</span>
+            </div></div>
+            <div id="socialMediaLinks" class="col col-lg-4">
+                <a target="_blank" title="link" href="https://www.facebook.com/newstcoin-545526385631812/"><div class="fbimg"></div></a>
+                <a target="_blank" title="link" href="https://twitter.com/SuparnaGlobal"><div class="twimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="googimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="ytimg"></div></a>
+            </div>
+    </footer>
+  </div>
+  
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Raise Complaint</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="sel1">You are Saying :</label>
+            <select class="form-control" ng-model="todayStatusBySubscriber.status"
+                    ng-options="value.itemId as value.itemName for (key, value) in items"></select>
+          </div>
+          <div class="form-group">
+            <label for="comment">Complaint Description:</label>
+            <textarea class="form-control" rows="5" id="comment" ng-model="todayStatusBySubscriber.comments"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="myModalClose" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="submitDeliveryStatus()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Escalate Modal -->
+  <div id="escalateModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title" ng-show="actionObj.status == 2">Escalate Complaint</h4>
+          <h4 class="modal-title" ng-show="actionObj.status == 3">Close Complaint</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label >Complaint Details:</label>
+             <div class="row">
+              <div class="col-md-4">
+                Status: {{actionObj.item.subscriber_delivery_status}}
+              </div>
+              <div class="col-md-4">
+                Dated: {{actionObj.item.delivery_time|date:'dd-MM-yyyy'}}
+              </div>
+              <div class="col-md-4">
+                Latest Comment: {{actionObj.item.comments}}
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="comment" ng-show="actionObj.status == 2">Complaint Description:</label>
+            <label for="comment" ng-show="actionObj.status == 3">Closing Comments:</label>
+            <textarea class="form-control" rows="5" id="comment" ng-model="actionObj.comments"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="escalateModalClose" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="submitNewStatus()">Submit</button>
+        </div>
+      </div>
+    </div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-cookies.min.js"></script>
+  <script src="<?php echo $URL_PREFIX; ?>/app/app.js"></script>
+  <script src="<?php echo $URL_PREFIX; ?>/app/controllers/subscriber.js"></script>
+</body>
+</html>

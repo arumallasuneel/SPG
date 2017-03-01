@@ -1,0 +1,126 @@
+  <!-- Total Page Container Stars here-->
+  <div class="container" ng-controller="agentCtrl" ng-cloak>
+    <!-- Section 1 start -->
+
+    <div>    
+      <div class="jumbotron">
+       <!-- <div class="col-lg-4 col-xs-8" style="float:left"> -->
+          <h4>Today's Delivery Status</h4> 
+          <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#deliveredlist">Delivered <span class="badge">{{subscriberData.delivered_list}}</span></button>
+          <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#notdeliveredlist">Not Delivered <span class="badge">{{subscriberData.not_delivered_list}}</span></button>
+        <!-- </div>
+        <div class="col-lg-4 col-xs-8" style="float:left">
+        <form role="form">
+          <div class="form-group" >
+            <label for="sel1">Delivery Boys List :</label>
+            <select class="form-control" id="sel1">
+              <option>111</option>
+              <option>112</option>
+              <option>113</option>
+              <option>114</option>
+            </select>
+            <button type="button" class="btn btn-primary">View Details</button>
+          </div>
+        </form>
+      </div> -->
+      </div>
+      
+    </div>
+
+    <!-- Section 1 End -->
+
+    <!-- Section 2 Start -->
+    <div class="panel panel-default collapse" id="deliveredlist">
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+            <th>Subscriber ID</th>
+            <th>Delivery Boy ID</th>
+            <th>Date &amp; Time</th>
+            <th>Comments</th>
+            <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="item in subscriberData.success_list">
+            <th scope="row">{{item.subscriber_id}}</th>
+            <td>{{item.deliveryboy_id}}</td>
+            <td>{{item.deliver_date}}</td>
+            <td>{{item.deliver_status}}</td>
+            <td>{{item.deliver_comments}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      <div class="panel panel-default collapse" id="notdeliveredlist">
+        <div class="panel-footer">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+              <th>Subscriber ID</th>
+              <th>Delivery Boy ID</th>
+              <th>Date &amp; Time</th>
+              <th>Comments</th>
+              <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in subscriberData.not_success_list">
+              <th scope="row">{{item.subscriber_id}}</th>
+              <td>{{item.deliveryboy_id}}</td>
+              <td>{{item.deliver_date}}</td>
+              <td>{{item.deliver_status}}</td>
+              <td>{{item.deliver_comments}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+    <!-- Section 2 End -->
+    <!-- Section 3 Start -->
+    
+      
+    
+    <!-- Section 3 End -->
+    <hr class="featurette-divider"/>
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <!-- <p>&copy; 2016 Suparna Global Technologies. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
+      <div class="col col-lg-10">
+                <img src="<?php echo $URL_PREFIX; ?>/img/newst.png" alt="Inc" width="100px">
+                <a href="<?php echo $URL_PREFIX; ?>/home/about/">About</a>
+                <a href="/apps/">Apps</a>
+                <a href="/help/">Help</a>
+                <a href="/terms/">Terms</a>
+                <a href="<?php echo $URL_PREFIX; ?>/home/privacy/">Privacy</a>
+                <a href="<?php echo $URL_PREFIX; ?>/home/contact/">Contact Us</a>
+            </div>
+           
+            <div class="col col-lg-2">
+                <span style="white-space: nowrap">&copy; 2016 Suparna Global Technologies. &middot;</span>
+            </div></div>
+            <div id="socialMediaLinks" class="col col-lg-4">
+                <a target="_blank" title="link" href="https://www.facebook.com/newstcoin-545526385631812/"><div class="fbimg"></div></a>
+                <a target="_blank" title="link" href="https://twitter.com/SuparnaGlobal"><div class="twimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="googimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="ytimg"></div></a>
+            </div>
+    </footer>
+  </div>
+</div>
+  <!-- /.container -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+  <script src="<?php echo $URL_PREFIX; ?>/app/app.js"></script>
+  <script src="<?php echo $URL_PREFIX; ?>/app/controllers/agent.js"></script>
+</body>
+</html>

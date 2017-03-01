@@ -1,0 +1,101 @@
+@import url(https://fonts.googleapis.com/css?family=Martel+Sans:400,600,300,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+.su-quote.ctheme_style {
+background:#31aae2;
+color:#fff;
+font-size:16px;
+padding:2em 5em;
+font-style:normal;
+}
+.su-tabs.ctheme_style {
+background:#f9f9f9;
+padding:0px;
+border:1px solid #f1f1f1;
+border-radius:0px;
+}
+.su-tabs.ctheme_style .su-tabs-nav span.su-tabs-current {
+color:#31aae2;
+}
+.su-accordion.ctheme_style .su-spoiler {
+border:1px solid #e0e0e0;
+min-width:300px;
+}
+.su-accordion.ctheme_style .su-spoiler-title {
+font-weight:200;
+font-size:18px;
+padding:35px 90px 35px 70px !important;
+font-family:'Open Sans', sans-serif;
+position: relative;
+}
+.su-accordion.ctheme_style .su-spoiler-content {
+padding:0px;
+text-align:center;
+font-family:'Open Sans', sans-serif;
+}
+.su-accordion.ctheme_style .su-spoiler-title > .su-spoiler-icon {
+left:15px;
+top:23px;
+width:42px;
+height:42px;
+	background-size:100% 100%;
+}
+.su-accordion.ctheme_style .su-spoiler-title > .su-spoiler-icon:before {
+display:none;
+}
+.su-accordion.ctheme_style .su-spoiler-title:after {
+content:'';
+display:block;
+width:40px;
+height:40px;
+position:absolute;
+right:24px;
+bottom:3px;
+	background:url(loc-topen.png) no-repeat center center;
+	background-size:contain;
+}
+.su-accordion.ctheme_style .su-spoiler.su-spoiler-closed .su-spoiler-title:after {
+	background:url(loc-tclose.png) no-repeat center center;
+	background-size:contain;
+}
+
+select.test {
+height:39px;
+border:1px solid #dfdfdf;
+padding:7px 0px 5px 1% !important;
+margin-bottom:5px;
+width:99.3% !important;
+}
+@media (max-width:767px) {
+	.su-accordion.ctheme_style .su-spoiler-title {
+	padding:20px 60px !important;
+	font-size:18px;
+	}
+	.su-accordion.ctheme_style .su-spoiler-title > .su-spoiler-icon {
+	bottom:3px;
+	width:30px;
+	height:30px;
+	}
+	.su-accordion.ctheme_style .su-spoiler-title:after {
+	width:30px;
+	height:30px;
+	right:15px;
+	} .recent-complaint{display:none}
+}
+@media (max-width:990px) {
+	.recent-complaint{display:none}
+}
+@media (max-width:400px) {
+	.su-accordion.ctheme_style .su-spoiler-title {
+		padding:18px 60px !important;
+		font-size:12px;
+	}
+	.su-accordion.ctheme_style .su-spoiler-title > .su-spoiler-icon {
+		bottom:3px;
+		width:26px;
+		height:26px;
+	}
+	.su-accordion.ctheme_style .su-spoiler-title:after {
+		width:26px;
+		height:26px;
+	}.recent-complaint{display:none}
+}

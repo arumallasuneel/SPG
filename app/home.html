@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="">
+    <title>Suparna Global</title>
+    <link rel="stylesheet" href="./styles/72e1342f61ae.css" type="text/css" />
+
+    <!-- 
+    <meta property="og:title" content="Inc - Better Conversations For Your Company" />
+    <meta name="description" content="Inc helps you to discuss and share information without emailing everyone. Alternative to mailing lists, chat or email">
+    <meta property="og:description" content="Inc helps you to discuss and share information without emailing everyone." />
+    <meta property="og:image" content="https://d1hjm33yswheja.cloudfront.net/img/inc-og.jpg" />
+     -->
+
+
+
+    <!--
+    http://www.sucromin.com/images/coffee-reading-paper.jpg
+    http://www.chatelaine.com/wp-content/uploads/2012/12/WomanReadingPaper.jpg
+	-->
+
+    <style type="text/css">
+        .sticky {
+            background: floralwhite !important;
+            position: fixed !important;
+            height: 50px !important;
+            padding: 0px !important;
+        }
+        
+        .fbimg_old {
+            width: 60px;
+            height: 40px;
+            background: url(<?php echo $URL_PREFIX; ?>/img/social.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 0px 0px;
+        }
+        
+        .twimg_old {
+            width: 60px;
+            height: 40px;
+            background: url(<?php echo $URL_PREFIX; ?>/img/social.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: -60px 0px;
+        }
+        
+        .fbimg {
+            width: 40px;
+            height: 40px;
+            background: url(<?php echo $URL_PREFIX; ?>/img/social.jpg);
+            background-repeat: no-repeat;
+            background-position: 0px -94px;
+        }
+        
+        .twimg {
+            width: 40px;
+            height: 40px;
+            background: url(<?php echo $URL_PREFIX; ?>/img/social.jpg);
+            background-repeat: no-repeat;
+            background-position: -38px -94px;
+        }
+        
+        .googimg {
+            width: 40px;
+            height: 40px;
+            background: url(<?php echo $URL_PREFIX; ?>/img/social.jpg);
+            background-repeat: no-repeat;
+            background-position: -75px -94px;
+        }
+        
+        .ytimg {
+            width: 40px;
+            height: 40px;
+            background: url(<?php echo $URL_PREFIX; ?>/img/social.jpg);
+            background-repeat: no-repeat;
+            background-position: -113px -94px;
+        }
+        
+        body.landing header .bg {
+            /*background: url(<?php echo $URL_PREFIX; ?>/img/coffee-reading-paper.jpg) top right no-repeat;*/
+            background: "images/coffee-reading-paper.jpg";
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+            opacity: 10;
+        }
+        
+        .grayscale {
+            border: 0px solid black;
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            /* For Webkit browsers */
+            filter: gray;
+            /* For IE 6 - 9 */
+            -webkit-transition: all .6s ease;
+            /* Transition for Webkit browsers */
+        }
+        
+        .grayscale:hover {
+            filter: grayscale(0%);
+            -webkit-filter: grayscale(0%);
+            filter: none;
+        }
+        
+        #owl-demo .owl-item {
+            margin: 3px;
+        }
+        
+        #owl-demo .owl-item img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        
+        .testBlocks {
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            display: inline-block;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.css" rel="stylesheet" />
+
+
+
+
+</head>
+
+<body class="landing site" ng-app="onCycle" ng-clock>
+    <div class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/"><img src="./images/newst.png" alt="Suparna" width="150px"></a>
+            <ul class="nav navbar-nav">
+                <!--
+            <li><a href="/features/" class="nav-features">Features</a></li>
+            <li><a href="/about/" class="nav-about">About</a></li>
+             -->
+                <li class="sep"></li>
+                <li><a href="aboutus.html" class="nav-about" style="color:#000">About Us</a></li>
+                <li class="sep"></li>
+
+                <li><a href="login.html" style="color:#000">Log in</a></li>
+                <li><a href="login.html" class="btn signup-link" style="color:#000">Sign up</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <header>
+        <div class="bg"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-12">
+                    <div class="text">
+                        <h1 style="color:#7D8598">Better Tracking For Your Business!</h1>
+                        <p style="color:#4c5869">Suparna helps you to manage delivering paper on time.</p>
+                    </div>
+                    <div class="signup">
+                        <span class="or" style="width: 411px;font-size: 18px;color: #4c5869;margin: 25px 0;font-weight: bold;">Leave your phone number or email to reach you!</span>
+                        <form action="." method="POST"><input type='hidden' name='csrfmiddlewaretoken' value='YBLxvHEbDCYlRQzqxoGEqtKujqBv7Sls' />
+                            <input type="text" name="email" placeholder="Your Email or Phone">
+                            <input type="submit" class="btn" value="Reach Me">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section ng-controller="HomePageCtrl">
+        <div class="block">
+            <div class="container">
+
+
+                <div class="row">
+                    <div class="col l12 m12 s12 column">
+                        <div class="modern-title">
+                            <h2>NEWST OFFERS FOR YOU</h2>
+
+                        </div>
+                        <div ng-repeat="item in offersList" class="testBlocks">
+                            <a href="<?php echo $URL_PREFIX; ?>/Home/getOfferDetailsById/{{item.offers_Id}}/page">
+                                <div>
+                                    {{item.offer_desciption}}
+                                </div>
+                            </a>
+                        </div>
+                        <div id="owl-demo">
+
+
+
+
+
+                            <!-- <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div>
+  <div class="owl-item grayscale" style="width: 293px;">
+    <img src="http://lorempixel.com/200/200/technics/" alt="Owl Image">
+  </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="work">
+        <h2>Keep Your Business on Track</h2>
+        <p class="lead">Suparna enables you to easily track the deliverables and helps in keep better communication with subscribers. We also help in extending good releationship to continue the subscriptions.</p>
+
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-4">
+                    <a onclick="showhide_menu('1');" class="nav nav1 active">
+                        <img src="images/icon-share.png" alt="share">
+                        <h4>Subscriber Page</h4>
+                        <p>Suparna gives powerful dashboard to track the paper delivery status, and track complaints.</p>
+                    </a>
+                </div>
+                <div class="col col-xs-4">
+                    <a onclick="showhide_menu('2');" class="nav nav2">
+                        <img src="images/icon-box.png" alt="share">
+                        <h4>Tool for Distribution</h4>
+                        <p>Delivery boy and Agent will have power to show their realtime status of work and delvierables.</p>
+                    </a>
+                </div>
+                <div class="col col-xs-4">
+                    <a onclick="showhide_menu('3');" class="nav nav3">
+                        <img src="images/icon-inbox.png" alt="share">
+                        <h4>Publisher Dashboard</h4>
+                        <p>With Our tool it's easier to have discussions and keep everyone on the same page, and track the deliveries.</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <section id="testimonials">
+
+        <div class="container">
+            <h2>Trusted by Smart Companies<br><br></h2>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col col-xs-5">
+                        <div class="row">
+                            <div class="col col-xs-6">
+                                <img src="http://epaper.namasthetelangaana.com/theme/namastetelangana/images/Namasthe-Telangana-Logo.png" height="48" width="222">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col col-lg-10">
+                    <img src="images/newst.png" alt="Inc" width="100px">
+                    <a href="aboutus.html">About</a>
+                    <a href="/apps/">Apps</a>
+                    <a href="/help/">Help</a>
+                    <a href="/terms/">Terms</a>
+                    <a href="privacyandpolicy.html">Privacy</a>
+                    <a href="contactus.html">Contact Us</a>
+                </div>
+
+                <div class="col col-lg-2">
+                    <span style="white-space: nowrap">&copy; 2016 Suparna Global Technologies. &middot;</span>
+                </div>
+                <div id="socialMediaLinks" class="col col-lg-4">
+                    <a target="_blank" title="link" href="https://www.facebook.com/newstcoin-545526385631812/">
+                        <div class="fbimg"></div>
+                    </a>
+                    <a target="_blank" title="link" href="https://twitter.com/SuparnaGlobal">
+                        <div class="twimg"></div>
+                    </a>
+                    <a target="_blank" title="link" href="#">
+                        <div class="googimg"></div>
+                    </a>
+                    <a target="_blank" title="link" href="#">
+                        <div class="ytimg"></div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript
+  ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-cookies.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.js"></script>
+
+    <script src="app/js/app.js"></script>
+    <script src="/app/js/controllers/homePage.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+
+    <script type="text/javascript">
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 1) {
+                $('.navbar').addClass("sticky");
+            } else {
+                $('.navbar').removeClass("sticky");
+            }
+        });
+
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+                autoplay: true,
+                autoplayTimeout: 2500,
+                smartSpeed: 2000,
+                autoplayHoverPause: true,
+                loop: true,
+                dots: false,
+                nav: true,
+                margin: 0,
+                mouseDrag: true,
+                items: 5,
+                autoHeight: true,
+                responsive: {
+                    1200: {
+                        items: 5
+                    },
+                    980: {
+                        items: 4
+                    },
+                    768: {
+                        items: 3
+                    },
+                    480: {
+                        items: 2
+                    },
+                    0: {
+                        items: 1
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

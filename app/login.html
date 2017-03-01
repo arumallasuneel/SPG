@@ -1,0 +1,82 @@
+
+<div class="container" ng-controller="UserCtrl">
+	  <div class="row" style="border: 2px solid ghostwhite;background: white;heigth:200px">
+	    <div class="col-md-6" style="border: 2px solid ghostwhite;background: white;heigth:200px">
+	      <form class="form-signin">
+	        <h2 class="form-signin-heading">Please sign in</h2>
+	        <label for="inputEmail" class="sr-only">Email address</label>
+	        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" ng-model="username" required autofocus>
+	        <label for="inputPassword" class="sr-only">Password</label>
+	        <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="password" required>
+	        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="submit()" style="padding: 12px;font-size: 16px;border: 0;border-radius: 2px;">Sign in</button>
+	      </form>
+	    </div>
+	    <div class="col-lg-6 signup-section" style="text-align: center;font-size: large;">
+	      <h2>Sign up</h2>
+	      <div> As of now the application sign up is invitation based.</div>
+	      <div>
+	        Leave your phone number or email here, we will get back to you with invite.
+	        <div>
+	          <input type="email" placeholder="Email address or Phone" ng-model="username" style="padding: 12px;font-size: 16px;border: 0;border-radius: 2px;width: 195px;" >
+	          <button class="btn btn-primary" style="padding: 12px;font-size: 16px;border: 0;border-radius: 2px;width: 195px;" type="submit" >Send me invite</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+
+	   <hr class="featurette-divider">
+	
+	    <!-- FOOTER -->
+	 <!--  <footer>
+	    <p class="pull-right"><a href="#">Back to top</a></p>
+	    <p>&copy; 2016 Suparna Global Technologies. &middot; <a href="<?php echo $URL_PREFIX; ?>/home/privacy/">Privacy</a> &middot; <a href="<?php echo $URL_PREFIX; ?>/home/privacy/">Terms</a></p>
+	  
+	  	    <div id="socialMediaLinks" class="col col-lg-4">
+                <a target="_blank" title="link" href="https://www.facebook.com/newstcoin-545526385631812/"><div class="fbimg"></div></a>
+                <a target="_blank" title="link" href="https://twitter.com/SuparnaGlobal"><div class="twimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="googimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="ytimg"></div></a>
+            </div>
+        </footer> -->
+        <footer>
+
+    <div class="container">
+
+            <div class="col col-lg-10">
+                <img src="<?php echo $URL_PREFIX; ?>/img/newst.png" alt="Inc" width="100px">
+                <a href="<?php echo $URL_PREFIX; ?>/home/about/">About</a>
+                <a href="/apps/">Apps</a>
+                <a href="/help/">Help</a>
+                <a href="/terms/">Terms</a>
+                <a href="<?php echo $URL_PREFIX; ?>/home/privacy/">Privacy</a>
+                <a href="<?php echo $URL_PREFIX; ?>/home/contact/">Contact Us</a>
+            </div>
+           
+            <div class="col col-lg-2">
+                <span style="white-space: nowrap">&copy; 2016 Suparna Global Technologies. &middot;</span>
+            </div></div>
+            <div id="socialMediaLinks" class="col col-lg-4">
+                <a target="_blank" title="link" href="https://www.facebook.com/newstcoin-545526385631812/"><div class="fbimg"></div></a>
+                <a target="_blank" title="link" href="https://twitter.com/SuparnaGlobal"><div class="twimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="googimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="ytimg"></div></a>
+            </div>
+
+        
+    </div>
+
+</footer>
+	</div>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-cookies.min.js"></script>
+    <script src="<?php echo $URL_PREFIX; ?>/app/app.js"></script>
+  </body>
+</html>

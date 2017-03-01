@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+
+  <title>Suparna Global Technologies :: Login Page</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <!-- Custom styles for this template -->
+  <link href="<?php echo $URL_PREFIX; ?>/bootstrap/css/carousel.css" rel="stylesheet">
+  <link href="<?php echo $URL_PREFIX; ?>/img/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo $URL_PREFIX; ?>/img/72e1342f61ae.css">
+  <style type="text/css">
+
+    .login-style{
+      margin-top: 5px;
+    }
+    .signup-action {
+      display: block;
+      margin-bottom: 36px;
+    }
+    .signup-section {
+      display: none;
+    }
+    .signup-seperator {
+      display: none;
+    }
+    @media screen and (min-width: 480px) {
+      .signup-action {
+        display: none;
+      }
+      .signup-section {
+        display: block;
+      }
+      .signup-seperator {
+        display: block;
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      .signup-seperator {
+        display: none;
+      }
+    }
+    
+   
+
+    .form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+   
+    .fbimg_old {
+        width:60px; 
+        height:40px; 
+        background: url(<?php echo $URL_PREFIX; ?>/img/social.png); 
+        background-size:cover; 
+        background-repeat:no-repeat; 
+        background-position:0px 0px;
+    }
+
+    .twimg_old {
+        width:60px; 
+        height:40px; 
+        background: url(<?php echo $URL_PREFIX; ?>/img/social.png); 
+        background-size:cover; 
+        background-repeat:no-repeat; 
+        background-position:-60px 0px;
+    }
+
+    .fbimg {
+        width:40px; 
+        height:40px; 
+        background: url(<?php echo $URL_PREFIX; ?>/img/social.jpg); 
+        background-repeat:no-repeat; 
+        background-position:0px -94px;
+    }
+
+    .twimg {
+        width:40px; 
+        height:40px; 
+        background: url(<?php echo $URL_PREFIX; ?>/img/social.jpg); 
+        background-repeat:no-repeat; 
+        background-position:-38px -94px;
+    }
+
+    .googimg {
+        width:40px; 
+        height:40px; 
+        background: url(<?php echo $URL_PREFIX; ?>/img/social.jpg); 
+        background-repeat:no-repeat; 
+        background-position:-75px -94px;
+    }
+
+    .ytimg {
+        width:40px; 
+        height:40px; 
+        background: url(<?php echo $URL_PREFIX; ?>/img/social.jpg); 
+        background-repeat:no-repeat; 
+        background-position:-113px -94px;
+    }
+
+    
+  </style>
+</head>
+<body ng-app="onCycle" ng-clock>
+  <!-- NAVBAR ================================================== -->
+  <div class="navbar-wrapper">
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+            <a class="navbar-brand" href="#" style="padding:5px">
+            <img alt="Brand" src="<?php echo $URL_PREFIX; ?>/img/logo_suparna.jpg" style="height:40px;width:60px;">
+            </a>
+            <a class="navbar-brand" href="#">News Tracker</a>
+          </div>
+        <div class="collapse navbar-collapse" id="navbar">
+
+            <!--<ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#"><?php echo $item1; ?></a></li>
+              <li><a href="#">Offers Zone</a></li>
+            </ul>-->
+            <ul class="nav navbar-nav navbar-right">
+           
+
+              <?php if($item1 == 'login') { ?>
+              	<li class="active login-style"><a href="<?php echo $URL_PREFIX; ?>/">Home</a></li>
+              <?php } else if($item1 == 'home') { ?>
+              <li class="active login-style"><a href="<?php echo $URL_PREFIX; ?>/user/Login">Login</a></li>
+              <?php } else { ?>
+              <li class="dropdown login-style" ng-controller="UserCtrl">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" >Settings <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Profile Settings</a></li>
+                  <li><a href="#">Account Settings</a></li>
+                  <li><a ng-click="logout()"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+                </ul>
+              </li>
+        
+              <?php } ?>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- END OF NAV BAR -->
+  <?php if($item1 != 'home') { ?>
+  <br/><br/><br/><br/>
+  <?php } ?>

@@ -1,0 +1,171 @@
+  <!-- Total Page Container Stars here-->
+<div class="container" ng-controller="deliveryBoyCtrl" ng-cloak>
+
+<div ng-repeat="user in userData.users.users" style="background-color:#E8E8E8;text-align: right; ">Welcome to : {{user.user_name}} ({{user.user_Id}}).</div>
+ 
+
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content" style="font-family: Arial, sans-serif;
+        font-size: 12px; min-width: 200px; /* Dialog will be no smaller than this */
+        max-width: 450px; /* Dialog will wrap after this width */
+        background-color:#E6E6FF; border: solid 5px #999; color: #000; border-radius: 5px;">
+        <div class="modal-header" style="font-size: 14px;
+          font-weight: bold; text-align: center; line-height: 1.75em; color: #666; background: #CCC;">
+         <h4 class="modal-title"> Alert Box</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+           <h4><a style="background: 16px 16px no-repeat url('img/info.gif'); padding: 1em 1.75em; margin: 0em;"></a>Please Select Atleast One Subscriber !!.</h4>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="myModalClose" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Section 1 Start -->
+    <div class="panel panel-default">
+        <div >
+          <div class="panel-body">
+            <div class="alert alert-success" ng-show="actionStatus.success">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+              <strong>Success!</strong> Thanks for Delivery Status Updated.
+            </div>
+          <div class="alert alert-info" ng-show="actionStatus.info">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+              <strong>Info!</strong> Please Updated Delivery Status  !!!.
+          </div>
+        </div>
+      <div class="panel-body"></div>
+      <div class="panel panel-primary">
+        <div class="panel-body">List of Subscribers to be Delivered Today
+          <div style="float:right">
+            <div class="dropdown" style="float: left;">
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Update Status
+                  <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#" ng-click="updateDeliveryStatus(0)">Delivered</a></li>
+                <li><a href="#" ng-click="updateDeliveryStatus(1)">Not Delivered</a></li>
+                <li><a href="#" ng-click="updateDeliveryStatus(2)">Late Delivered</a></li>
+              </ul>
+            </div>
+            <div class="dropdown" style="float: left;margin-left: 10px;">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter Results
+                  <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#" ng-click="filterStatus(-1)">Show All</a></li>
+                <li><a href="#" ng-click="filterStatus(1)">Delivered</a></li>
+                <li><a href="#" ng-click="filterStatus(2)">Not Delivered</a></li>
+                <li><a href="#" ng-click="filterStatus(3)">Late Delivered</a></li>
+                <li><a href="#" ng-click="filterStatus(0)">Not Updated</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <table class="table table-striped visible-desktop">
+            <thead>
+              <tr>
+                <th>Subscriber Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th style="width: 150px;">
+                      <div class="dropdown" style="float: left;">
+	                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select Options
+	                <span class="caret"></span></button>
+	                <ul class="dropdown-menu">
+	                  <li><a href="#" ng-click="toggleSelectAll()">Toglle Selection</a></li>
+	                  <li><a href="#" ng-click="selectAll()">Select All</a></li>
+	                  <li><a href="#" ng-click="unSelectAll()">Un Select All</a></li>
+	                </ul>
+	              </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            <form action="#" method="post" name="actfrm">
+             <!--  <tr ng-repeat="item in subscriberStatusUpdated.subscribers | filter:{'boy_delivery_status':filterStatusBy}:true"> -->
+             <tr ng-repeat="item in subscriberStatusUpdated.subscribers">
+                <td scope="row">{{item.subscriber_name}}</td>
+                <td>{{item.subscriber_address}}</td>
+                <td>{{item.subscriber_phone}}</td>
+                <td>
+                    <!-- <input type="checkbox" ng-model="item.Selected" /> -->
+                    <input type="checkbox" ng-model="item.selected">
+                    {{item.boy_delivery_status}} </td>
+              </tr>
+            </form>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+   	<!-- Section 1 End -->
+    <hr class="featurette-divider"/>
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <!-- <p>&copy; 2016 Suparna Global Technologies. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p> -->
+      <div class="col col-lg-10">
+                <img src="<?php echo $URL_PREFIX; ?>/img/newst.png" alt="Inc" width="100px">
+                <a href="<?php echo $URL_PREFIX; ?>/home/about/">About</a>
+                <a href="/apps/">Apps</a>
+                <a href="/help/">Help</a>
+                <a href="/terms/">Terms</a>
+                <a href="<?php echo $URL_PREFIX; ?>/home/privacy/">Privacy</a>
+                <a href="<?php echo $URL_PREFIX; ?>/home/contact/">Contact Us</a>
+            </div>
+           
+            <div class="col col-lg-2">
+                <span style="white-space: nowrap">&copy; 2016 Suparna Global Technologies. &middot;</span>
+            </div></div>
+            <div id="socialMediaLinks" class="col col-lg-4">
+                <a target="_blank" title="link" href="https://www.facebook.com/newstcoin-545526385631812/"><div class="fbimg"></div></a>
+                <a target="_blank" title="link" href="https://twitter.com/SuparnaGlobal"><div class="twimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="googimg"></div></a>
+                <a target="_blank" title="link" href="#"><div class="ytimg"></div></a>
+            </div>
+    </footer>
+  </div>
+  <!-- /.container -->
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Raise Complaint</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="comment">Complaint Description:</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-cookies.min.js"></script>
+  <script src="<?php echo $URL_PREFIX; ?>/app/app.js"></script>
+  <script src="<?php echo $URL_PREFIX; ?>/app/controllers/deliveryboy.js"></script>
+</body>
+</html>

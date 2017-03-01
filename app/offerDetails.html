@@ -1,0 +1,63 @@
+<div style="margin: 200px 0px">
+	<div class="row">
+	  <div class="col-sm-6" style="height:200px;border: 1px solid burlywood;padding:10px">
+	      OFFER IMAGE COMES HERE...
+	  </div>
+	  <div class="col-sm-6" style="height:200px;border: 1px solid burlywood;padding:10px">
+	      <div>OFFER DETAILS COMES HERE...</div>
+	  	<button type="button" class="btn btn-primary btn-lg btn-block" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"
+	  	style="margin-top:110px">
+	  	Subscribe for this offfer</button>
+	    </div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" ng-controller="subscriberCtrl">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div style="padding:10px">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+		<form>
+		  <div class="form-group">
+		    <label for="sub-name" class="control-label">Name:</label>
+		    <input type="text" class="form-control" id="sub-name" ng-model="sub.name"/>
+		    
+		    <input type="hidden" class="form-control" id="sub-offers-id"  ng-model="sub.offer_id"
+		    	ng-init="sub.offer_id=<?php echo $offers_list_by_id[0]['offers_Id'];?>"/>
+		  </div>
+		  <div class="form-group">
+		    <label for="sub_email" class="control-label">Email:</label>
+		    <input type="text" class="form-control" id="sub-email" ng-model="sub.email"/>
+		  </div>
+		  <div class="form-group">
+		    <label for="sub-phone" class="control-label">Phone:</label>
+		    <input type="text" class="form-control" id="sub-phone" ng-model="sub.phone"/>
+		  </div>
+		</form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="submitNewSubscription()">Submit</button>
+        </div>
+    </div>
+
+  </div>
+</div>
+ <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.10/angular-cookies.min.js"></script>
+  <script src="<?php echo $URL_PREFIX; ?>/app/app.js"></script>
+  <script src="<?php echo $URL_PREFIX; ?>/app/controllers/subscriber.js"></script>
+</body>
+</html>
