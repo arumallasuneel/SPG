@@ -1,24 +1,35 @@
 function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compileProvider) {
-  'ngInject';
+    'ngInject';
 
-  if (process.env.NODE_ENV === 'production') {
-    $compileProvider.debugInfoEnabled(false);
-  }
+    if (process.env.NODE_ENV === 'production') {
+        $compileProvider.debugInfoEnabled(false);
+    }
 
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
 
-  $stateProvider
-  .state('Home', {
-    url: '/',
-    controller: 'ExampleCtrl as home',
-    templateUrl: 'home.html',
-    title: 'Home'
-  });
+    // $stateProvider
+    // .state('Home', {
+    //   url: '/',
+    //   controller: 'ExampleCtrl as home',
+    //   templateUrl: 'home.html',
+    //   title: 'Home'
+    // });
 
-  $urlRouterProvider.otherwise('/');
+    $stateProvider
+        .state('/', {
+            url: '/',
+            controller: 'HomePageCtrl',
+            templateUrl: '../home.html',
+            title: 'Suparna Global'
+        });
+    // .state('', {}) // About us state
+    // .state('', {})
+    // .state('', {}); // About us state
+
+    $urlRouterProvider.otherwise('/');
 
 }
 
