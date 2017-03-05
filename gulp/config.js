@@ -7,8 +7,22 @@ export default {
     sourceDir: './app/',
     buildDir: './build/',
 
+    // styles: {
+    //     src: [
+    //         'app/styles/**/*.css',
+    //         'node_modules/**/*.scss',
+    //         'node_modules/**/*.less'
+    //     ],
+    //     dest: 'build/css',
+    //     prodSourcemap: false,
+    //     sassIncludePaths: []
+    // },
+
     styles: {
-        src: 'app/styles/**/*.scss',
+        src: [
+            'app/styles/**/*.scss',
+            'app/styles/**/*.css'
+        ],
         dest: 'build/css',
         prodSourcemap: false,
         sassIncludePaths: []
@@ -52,7 +66,10 @@ export default {
 
     views: {
         index: 'app/index.html',
-        src: 'app/views/**/*.html',
+        src: [
+            'app/views/**/*.html',
+            'app/**/*.html',
+        ],
         dest: 'app/js'
     },
 

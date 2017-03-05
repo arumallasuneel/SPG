@@ -10,24 +10,31 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
         requireBase: false
     });
 
-    // $stateProvider
-    // .state('Home', {
-    //   url: '/',
-    //   controller: 'ExampleCtrl as home',
-    //   templateUrl: 'home.html',
-    //   title: 'Home'
-    // });
-
     $stateProvider
-        .state('/', {
+        .state('home', {
             url: '/',
-            controller: 'HomePageCtrl',
-            templateUrl: '../home.html',
-            title: 'Suparna Global'
+            //controller: 'HomePageCtrl', // controller logic goes here.
+            templateUrl: 'home.html',
+            title: 'Suparna Global',
+        })
+        // About us state
+        .state('aboutus', {
+            url: '/aboutus',
+            templateUrl: 'aboutus.html',
+            title: 'Suparna Global -- About us'
+        })
+        // login 
+        .state('login', {
+            url: '/login',
+            templateUrl: 'login.html',
+            title: 'SPG-Login'
+        })
+        // signup
+        .state('signup', {
+            url: '/signup',
+            templateUrl: 'login.html',
+            title: 'SPG-signup'
         });
-    // .state('', {}) // About us state
-    // .state('', {})
-    // .state('', {}); // About us state
 
     $urlRouterProvider.otherwise('/');
 

@@ -1,0 +1,128 @@
+.sticky {
+    background: floralwhite !important;
+    position: fixed !important;
+    height: 50px !important;
+    padding: 0px !important;
+}
+
+.fbimg {
+    width: 40px;
+    height: 40px;
+    background: url(../images/social.jpg);
+    background-repeat: no-repeat;
+    background-position: 0px -94px;
+}
+
+.heading {
+    margin-bottom: 0.618em;
+}
+
+
+/* line 8, E:/SPG_src/app/styles/_typography.scss */
+
+.heading.-large,
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+
+/* line 14, E:/SPG_src/app/styles/_typography.scss */
+
+.heading.-medium,
+h2 {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+
+/* line 20, E:/SPG_src/app/styles/_typography.scss */
+
+.heading.-small,
+h3 {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 13.33333px;
+}
+
+
+/* line 26, E:/SPG_src/app/styles/_typography.scss */
+
+.heading.-smallest {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.twimg {
+    width: 40px;
+    height: 40px;
+    background: url(../images/social.jpg);
+    background-repeat: no-repeat;
+    background-position: -38px -94px;
+}
+
+.googimg {
+    width: 40px;
+    height: 40px;
+    background: url(../images/social.jpg);
+    background-repeat: no-repeat;
+    background-position: -75px -94px;
+}
+
+.ytimg {
+    width: 40px;
+    height: 40px;
+    background: url(../images/social.jpg);
+    background-repeat: no-repeat;
+    background-position: -113px -94px;
+}
+
+body.landing header .bg {
+    background: url(../images/coffee-reading-paper.jpg) top right no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    opacity: 10;
+}
+
+.grayscale {
+    border: 0px solid black;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    /* For Webkit browsers */
+    filter: gray;
+    /* For IE 6 - 9 */
+    -webkit-transition: all .6s ease;
+    /* Transition for Webkit browsers */
+}
+
+.grayscale:hover {
+    filter: grayscale(0%);
+    -webkit-filter: grayscale(0%);
+    filter: none;
+}
+
+#owl-demo .owl-item {
+    margin: 3px;
+}
+
+#owl-demo .owl-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.testBlocks {
+    width: 100px;
+    height: 100px;
+    border: 1px solid blue;
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+}
